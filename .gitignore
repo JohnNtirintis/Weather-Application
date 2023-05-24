@@ -1,3 +1,5 @@
 api-key.txt
 /.venv
 /__pycache__
+/javascript/test.js
+/static/test.css
