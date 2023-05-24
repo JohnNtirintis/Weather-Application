@@ -22,9 +22,15 @@
         </div>
     
         <!-- Right-aligned links -->
-        <div class="topnav-right">
+        <!-- <div class="topnav-right">
             <input class="search-bar" type="text" placeholder="&#xF002;" style="font-family:Arial, FontAwesome" />
-        </div>
+        </div> -->
+        <div class="search-container topnav-right">
+            <form action="/search" method="get">
+              <input class="search expandright" id="searchright" type="search" name="q" placeholder="Search">
+              <label class="button searchbutton" for="searchright"><span class="mglass">&#9906;</span></label>
+            </form>
+          </div>
     </div>
 
     {%if city %}
