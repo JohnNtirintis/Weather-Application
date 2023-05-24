@@ -26,7 +26,6 @@ window.onload = function() {
     }
 };
 
-
 const hiddenElements = document.querySelectorAll('.hidden');
 const menuHiddenElements = document.querySelectorAll('.menu-hidden');
 hiddenElements.forEach((el) => observer.observe(el))

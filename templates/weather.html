@@ -8,17 +8,40 @@
 
     <link rel="stylesheet" href="../static/style.css">
 
+    <script defer src="../static/main.js"></script>
+    <script src="https://kit.fontawesome.com/4fdd9d5910.js" crossorigin="anonymous"></script>
 </head>
 <body>
+    <!-- Top navigation -->
+    <div class="topnav menu-hidden">
+        <!-- Centered link -->
+        <div class="topnav-centered">
+        <a href="#home" class="active">Home</a>
+        <a href="#home" class="active">About us</a>
+        <a href="#home" class="active">Contact</a>
+        </div>
+    
+        <!-- Right-aligned links -->
+        <div class="topnav-right">
+            <input class="search-bar" type="text" placeholder="&#xF002;" style="font-family:Arial, FontAwesome" />
+        </div>
+    </div>
+
     {%if city %}
-        <div class="weather-title">
+        <div class="hidden weather-title ">
             <h1>Weather forecast for city: {{city}}</h1>
         </div>
-        <div class="weather-text">
+        <div class="hidden letter weather-text">
             <h3>
                 Temperature: {{temp}} °C <br>
-                Wind Speed: {{wind_speed}} <br>
-                Weather Description: {{weather_desc}}
+                Humidity: {{humidity}} <i class="fa-solid fa-droplet fa-xl" style="color: #ffffff;"></i> <br>
+                Wind Speed: {{wind_speed}}m/s N <br>
+                Weather Description: {{weather_desc}} 
+                {% if weather_desc == 'Clear Sky' %}
+                    <i class="fa-solid fa-sun fa-2xl" style="color: #ffffff;"></i>
+                {% elif weather_desc == 'few clouds'%}
+                    <i class="fa-solid fa-cloud fa-2xl" style="color: #ffffff;"></i>
+                {% endif %}
             </h3>
         </div>
     {%elif error%}

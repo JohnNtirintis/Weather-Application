@@ -24,7 +24,7 @@ def by_city(city):
     data = response.json()
     # Checking to see if the request was successful 
     if response.status_code == 200:
-        return render_template('weather.html', city=city, temp=data['main']['temp'], weather_desc=data['weather'][0]['description'],
+        return render_template('weather.html', city=city, temp=data['main']['temp'], humidity=data['main']['hmidity'] ,weather_desc=data['weather'][0]['description'],
                          wind_speed=data['wind']['speed'])
         # print_data(data)
     else:
