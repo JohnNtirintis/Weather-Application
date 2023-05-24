@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{city}} weather forecast</title>
+
+    <link rel="stylesheet" href="../static/style.css">
+
+</head>
+<body>
+    {%if city %}
+        <div class="weather-title">
+            <h1>Weather forecast for city: {{city}}</h1>
+        </div>
+        <div class="weather-text">
+            <h3>
+                Temperature: {{temp}} °C <br>
+                Wind Speed: {{wind_speed}} <br>
+                Weather Description: {{weather_desc}}
+            </h3>
+        </div>
+    {%elif error%}
+        <h1 class="error-message">Error: {{error}}</h1>
+    {% else %}
+        <p>No Information Available</p>
+    {% endif %}
+</body>
+</html>

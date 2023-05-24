@@ -1,0 +1,19 @@
+body {
+    background-color: rgb(236, 120, 120);
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.weather-title {
+    text-align: center;
+}
+
+.weather-text {
+    text-align: center;
+}
+
+.error-message {
+    color: red;
+    background-color: black;
+    text-align: center;
+}
+
