@@ -13,13 +13,34 @@
 </head>
 <body>
 
-    <nav>
+    <!-- Top navigation -->
+    <div class="topnav menu-hidden">
+        <!-- Centered link -->
+        <div class="topnav-centered">
+        <a href="/" class="active">Home</a>
+        <a href="#home" class="active">About us</a>
+        <a href="#home" class="active">Contact</a>
+        </div>
+
+        <!-- Right-aligned links -->
+        <!-- <div class="topnav-right">
+            <input class="search-bar" type="text" placeholder="&#xF002;" style="font-family:Arial, FontAwesome" />
+        </div> -->
+        <div class="search-container topnav-right">
+            <form action="/search" method="get">
+            <input class="search expandright" id="searchright" type="text" name="city" placeholder="Search">
+            <label class="button searchbutton" for="searchright"><span class="mglass">&#9906;</span></label>
+            </form>
+        </div>
+    </div>
+
+    <!-- <nav>
         <ul class="menu menu-hidden">
             <li class="letter menu-hidden"><a href="#" >Weather</a></li>
             <li class="letter menu-hidden"><a href="#" >About Us</a></li>
             <li class="letter menu-hidden"><a href="#" >Test</a></li>
         </ul>
-    </nav>
+    </nav> -->
 
     <section class="hidden">
         <h1>Weather Forecast</h1>
@@ -33,12 +54,12 @@
     </section>
 
     <section class="hidden">
-        <h2>Buy My Product</h2>
+        <h2>This is my first ever project</h2>
         <p class="text">Lorem ipsum dolor sit amet conae coenetenderit. Repellendus! </p>
     </section>
 
     <section class="hidden">
-        <h2>its really good</h2>
+        <h2>It's fun</h2>
         <div class="logos">
             <div class="logo hidden">
                 <i class="fa-solid fa-cloud fa-2xl" style="color: #ffffff;"></i>

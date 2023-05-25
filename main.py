@@ -41,7 +41,7 @@ def by_ip():
 @app.route('/search')
 def search():
     # Correlates to the name attribute of the html code
-    city = request.args.get('q')
+    city = request.args.get('city')
     if not city:
         print(city)
         return render_template('home.html')
