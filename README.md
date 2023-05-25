@@ -20,7 +20,7 @@ git clone https://github.com/JohnNtirintis/Weather-Application.git
 
 Navigate to the cloned project directory
 ```md
-cd SimpleWeather
+cd Weather-Application
 ```
 
 Install the necessary packages
