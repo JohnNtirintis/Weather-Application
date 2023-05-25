@@ -28,7 +28,10 @@ Install the necessary packages
 ```md
 pip install flask requests
 ```
-
+OR if you have python 3.9 or 3.11 you can use:
+```md
+python3 -m pip install flask requests
+```
 <h2>OpenWeatherMap API Key</h2>
 <p>For this project you will need an API key to make requests to OpenWeatherMap, if you dont add an API key this project will not work.</p>
 <p>Note: i chose OpenWeatherApp because it has a completely free plan and costs litteraly nothing to use.</p>
