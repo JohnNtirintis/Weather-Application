@@ -33,24 +33,23 @@
           </div>
     </div>
 
-    {%if city %}
+    {% if city %}
         <div class="hidden weather-title ">
             <h1>Weather forecast for city: {{city}}</h1>
         </div>
         <div class="hidden letter weather-text">
             <h3>
-                Temperature: {{temp}} °C <br>
+                <div class="weather-info">
+                    <img class="weather-icon" src="{{ icon_url }}" alt="Weather Icon">
+                    <p> {{temp}} °C</p> 
+                </div>
+                
                 Humidity: {{humidity}} <i class="fa-solid fa-droplet fa-xl" style="color: #ffffff;"></i> <br>
                 Wind Speed: {{wind_speed}}m/s N <br>
                 Weather Description: {{weather_desc}} 
-                {% if weather_desc == 'Clear Sky' %}
-                    <i class="fa-solid fa-sun fa-2xl" style="color: #ffffff;"></i>
-                {% elif weather_desc == 'few clouds'%}
-                    <i class="fa-solid fa-cloud fa-2xl" style="color: #ffffff;"></i>
-                {% endif %}
             </h3>
         </div>
-    {%elif error%}
+    {% elif error%}
         <h1 class="error-message">Error: {{error}}</h1>
     {% else %}
         <p>No Information Available</p>

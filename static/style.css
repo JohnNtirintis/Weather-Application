@@ -72,10 +72,21 @@ body {
 .mglass {
 	display: inline-block;
 	pointer-events: none;
+	/* 
+	Vendor prefixes (like -webkit-, -moz-, -o-, and -ms-)
+	are used to add new features
+	in a way that won't break older versions of a browser.
+	*/
 	-webkit-transform: rotate(-45deg);
 	-moz-transform: rotate(-45deg);
 	-o-transform: rotate(-45deg);
 	-ms-transform: rotate(-45deg);
+	/* 
+	the transform property is defined without a vendor prefix, 
+	which will be compatible with the current and future versions of browsers 
+	once they adopt the standard specification.
+	*/
+	transform: rotate(-45deg);
 }
 
 .searchbutton {
@@ -161,6 +172,18 @@ body {
     opacity: 1;
     filter: blur(0);
     transform: translateX(0);
+}
+
+.weather-info {
+	display: flex;
+	/* align-items: center; */
+	justify-content: center;
+	margin-bottom: -18px;
+	margin-left: -28px;
+}
+
+.weather-icon {
+	vertical-align: middle;
 }
 
 .text {

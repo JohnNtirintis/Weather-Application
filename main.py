@@ -1,5 +1,5 @@
-from flask import Flask, url_for, redirect, render_template
-import requests
+from flask import Flask, url_for, redirect, render_template, request
+import requests as http_requests
 from requests import get
 
 app = Flask(__name__)
@@ -20,31 +20,31 @@ def home_page():
 @app.route("/weather/<string:city>")
 def by_city(city):
     #city = input("Enter your city: ").strip()
-    response = requests.get(URL.format(city , API_KEY))
+    response = http_requests.get(URL.format(city , API_KEY))
     data = response.json()
     # Checking to see if the request was successful 
     if response.status_code == 200:
-        return render_template('weather.html', city=city, temp=data['main']['temp'], humidity=data['main']['hmidity'] ,weather_desc=data['weather'][0]['description'],
-                         wind_speed=data['wind']['speed'])
+        icon_code=data['weather'][0]['icon']
+        return render_template('weather.html', city=city, icon_url= f"http://openweathermap.org/img/w/{icon_code}.png" ,temp=data['main']['temp'], humidity=data['main']['humidity'], 
+                               weather_desc=data['weather'][0]['description'], wind_speed=data['wind']['speed'])
         # print_data(data)
     else:
         return render_template('main.html', error=data['message'])
         #print(f"Error: {data['message']}")
     
-
 @app.route("/weather/")
 def by_ip():
     loc = get('https://ipapi.co/json/')
     data = loc.json()
     return by_city(data['city'])
 
-"""
-def print_data(data):
-    print(f"Temperature: {data['main']['temp']} °C")
-    print(f"Weather: {data['weather'][0]['description']}")
-    print(f"Wind Speed: {data['wind']['speed']}")
-    # Can also print the latidute and longitude of the user with:
-    print(f"Latidute: {data['coord']['lat']}")
-    print(f"Longitude: {data['coord']['lon']}")
-"""
+@app.route('/search')
+def search():
+    # Correlates to the name attribute of the html code
+    city = request.args.get('q')
+    if not city:
+        print(city)
+        return render_template('home.html')
+    return by_city(city)
+
 
