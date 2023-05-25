@@ -1,5 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Poppins:wght@200&display=swap');
 
+html {
+	scroll-behavior: smooth;
+}
+
 body {
     background-color: #131316;
     color: #ffffff;
