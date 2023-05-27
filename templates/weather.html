@@ -17,7 +17,7 @@
         <!-- Centered link -->
         <div class="topnav-centered">
         <a href="/" class="active">Home</a>
-        <a href="#about-us" class="active">About us</a>
+        <a href="#week-forecast" class="active">Weekly Forecast</a>
         <a href="#contact" class="active">Contact</a>
         </div>
     
@@ -33,8 +33,10 @@
           </div>
     </div>
 
-    {% if city %}
-        <div class="hidden weather-title ">
+    <!-- Remove section if you encounter any problems with centering etc. -->
+    <section class="section">
+        {% if city %}
+        <div class="hidden weather-title">
             <h1>Weather forecast for city: {{city}}</h1>
         </div>
         <div class="hidden letter weather-text">
@@ -49,10 +51,32 @@
                 Weather Description: {{weather_desc}} 
             </h3>
         </div>
-    {% elif error%}
-        <h1 class="error-message">Error: {{error}}</h1>
-    {% else %}
-        <p>No Information Available</p>
-    {% endif %}
+        {% elif error%}
+            <h1 class="error-message">Error: {{error}}</h1>
+        {% else %}
+            <p>No Information Available</p>
+        {% endif %}
+    </section>
+    
+
+    <section id="week-forecast">
+        <div class="hidden weather-title">
+            <h2>Weekly Forecast</h2>
+        </div>
+        <div>
+            <div class="weather-info">
+                <img class="weather-icon" src="{{ icon_url }}" alt="Weather Icon">
+                <p> {{temp}} °C</p> 
+            </div>
+        </div>
+       
+
+    </section>
+
+
+    <section id="about-the-city">
+        <h2>About the city</h2>
+    </section>
+
 </body>
 </html>

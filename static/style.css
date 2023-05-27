@@ -190,6 +190,10 @@ body {
 	vertical-align: middle;
 }
 
+.section {
+	min-height: 100vh;
+}
+
 .text {
     text-align: center;
 }

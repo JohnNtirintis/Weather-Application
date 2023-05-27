@@ -9,6 +9,7 @@ with open('api-key.txt', 'r') as file:
     API_KEY = file.readline().strip()
 
 URL = "http://api.openweathermap.org/data/2.5/weather?q={}&appid={}&units=metric"
+FIVE_DAY_FORECAST = "http://api.openweathermap.org/data/2.5/forecast?id={}&appid={}&units=metric"
 
 # Home page
 @app.route('/')
@@ -25,11 +26,11 @@ def by_city(city):
     # Checking to see if the request was successful 
     if response.status_code == 200:
         icon_code=data['weather'][0]['icon']
+        week_data = week_forecast(data['id'])
         return render_template('weather.html', city=city, icon_url= f"http://openweathermap.org/img/w/{icon_code}.png" ,temp=data['main']['temp'], humidity=data['main']['humidity'], 
                                weather_desc=data['weather'][0]['description'], wind_speed=data['wind']['speed'])
-        # print_data(data)
     else:
-        return render_template('main.html', error=data['message'])
+        return render_template('weather.html', error=data['message'])
         #print(f"Error: {data['message']}")
     
 @app.route("/weather/")
@@ -47,4 +48,12 @@ def search():
         return render_template('home.html')
     return by_city(city)
 
+# 5 day week forecast
+def week_forecast(city):
+    response =  http_requests.get(FIVE_DAY_FORECAST.format(city , API_KEY))
+    data = response.json()
+    if response.status_code == 200:
+        return data
+    else:
+        return render_template('weather.html', error=data['message'])
 
