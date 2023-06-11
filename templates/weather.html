@@ -57,34 +57,29 @@
             <p>No Information Available</p>
         {% endif %}
     </section>
-    
 
     <section class="section" id="week-forecast">
-        <div class="hidden weather-title">
+        <div class="hidden letter weather-title">
             <h2>Weekly Forecast</h2>
         </div>
-        <div class="hidden letter weather-text">
-            <div class="weather-info">
-                <!-- <img class="weather-icon" src="{{ icon_url }}" alt="Weather Icon"> -->
-            {% if week_data %}
-                {% for date_str, forecasts in week_data.items() %}
-                    <h2>Date: {{date_str}}</h2>
+        <div class="hidden letter weekly-container">
+            {% for date, forecasts in week_data.items() %}
+            <div class="day-container">
+                <h3 class="date">{{date}}</h3>
+                <div class="hourly-forecast">
                     {% for forecast in forecasts %}
-                    <p>
-                        Time: {{forecast['dt_txt']}},
-                        Temp: {{ (forecast['main']['temp'] - 273.15)|round(2) }}C,
-                        Weather: {{forecast['weather'][0]['description'] }}
-                    </p>
+                    <div class="weather-item">
+                        <span>Hour: {{forecast['hour']}},</span>
+                        <span>Temp: {{ (forecast['main']['temp'])|round(2) }}</span>
+                        <img class="weather-icon" src="http://openweathermap.org/img/w/{{ forecast['weather'][0]['icon'] }}.png" alt="Weather Icon">
+                    </div>
                     {% endfor %}
-                {% endfor %}
-            {% elif error %}
-                <h1 class="error-message">Error: {{error}}</h1>
-            {% endif %}
+                </div>
             </div>
+            {% endfor %}
         </div>
     </section>
-
-
+    
     <section class="section" id="contact">
         <div class="hidden weather-title">
             <h2>Weekly Forecast</h2>

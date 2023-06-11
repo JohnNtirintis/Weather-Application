@@ -38,6 +38,7 @@ def by_city(city):
         # Using week_forecast func to store the data in a dict 
         # then use the data in html with jinja
         week_data = week_forecast(data['id'])
+        #weekly_data_icon = week_data['weather']['0']['icon']
         return render_template('weather.html', city=city, week_data=week_data, icon_url= f"http://openweathermap.org/img/w/{icon_code}.png" ,temp=data['main']['temp'], humidity=data['main']['humidity'], 
                                weather_desc=data['weather'][0]['description'], wind_speed=data['wind']['speed'])
     # In case of error, print the error message to notify the user
@@ -82,15 +83,21 @@ def week_forecast(city):
              # Parse the date from the 'dt_txt' key and convert it to a date object
             date = datetime.strptime(item['dt_txt'], '%Y-%m-%d %H:%M:%S').date()
 
-            # Must convert to a string to use it as a dict key
-            date_str = str(date)
+            # We need to create another datetime_object that doesnt use the .date()
+            # because .date() drops the time part, so when we call it, the hour is always 00:00
+            # So i've added this instead
+            datetime_object = datetime.strptime(item['dt_txt'], '%Y-%m-%d %H:%M:%S')
 
+            # Must convert to a string to use it as a dict key
+            date_str = date.strftime('%d/%m')
+            hour_str = datetime_object.strftime('%H:%M')
+
+            item['hour'] = hour_str
             # If this date is not already a key in the dictionary, add it with an empty list as its value
             if date_str not in daily_data:
                 daily_data[date_str] = []
 
             daily_data[date_str].append(item)
-
         return daily_data
     else:
         return render_template('weather.html', error=data['message'])

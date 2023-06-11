@@ -5,6 +5,7 @@ html {
 }
 
 body {
+	width: 100%;
     background-color: #131316;
     color: #ffffff;
     font-family: 'Poppins', sans-serif;
@@ -148,7 +149,6 @@ body {
     text-align: center;
 }
 
-
 .letter {
     display: inline;
     opacity: 0;
@@ -179,18 +179,18 @@ body {
 }
 
 .weather-info {
+	width: 100%;
 	display: flex;
-	/* align-items: center; */
+	flex-direction: column; 
+	align-items: center; 
 	justify-content: center;
-	margin-bottom: -18px;
-	margin-left: -28px;
 }
 
 .weather-icon {
 	vertical-align: middle;
 }
 
- .section { 
+.section { 
 	display: grid;
     place-items: center;
     align-content: center;
@@ -201,6 +201,51 @@ body {
     text-align: center;
 }
 
+.weekly-text {
+	display: flex;
+    justify-content: space-between;
+    align-items: center;
+	flex-wrap: wrap;
+	width: 100%;
+}
+
+.weekly-text span {
+	flex: 1;
+}
+
+.weekly-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.day-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.hourly-forecast {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    width: 100%; /* you can adjust this value as needed */
+}
+
+.weather-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 10px;
+}
+
+.weather-item img {
+    height: 50px;
+    width: 50px;
+}
+
+
 .logos {
     display: flex;
 }
@@ -208,7 +253,6 @@ body {
 .logo {
     margin: 5px;
 }
-
 
 .error-message {
     color: red;
