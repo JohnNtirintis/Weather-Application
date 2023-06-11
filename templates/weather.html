@@ -36,8 +36,8 @@
     <!-- Remove section if you encounter any problems with centering etc. -->
     <section>
         {% if city %}
-        <div class="hidden weather-title">
-            <h1>Weather forecast for city: {{city}}</h1>
+        <div class="menu-hidden weather-title">
+            <h1 class="content-section">Weather forecast for city: {{city}}</h1>
         </div>
         <div class="hidden letter weather-text">
             <h3>
@@ -58,7 +58,7 @@
         {% endif %}
     </section>
 
-    <section class="section" id="week-forecast">
+    <section class="section top-margin" id="week-forecast">
         <div class="hidden letter weather-title">
             <h2>Weekly Forecast</h2>
         </div>
@@ -82,13 +82,12 @@
     
     <section class="section" id="contact">
         <div class="hidden weather-title">
-            <h2>Weekly Forecast</h2>
+            <h2>This is a test</h2>
         </div>
         <div class="weather-info">
             <img class="weather-icon" src="{{ icon_url }}" alt="Weather Icon">
             <p> {{temp}} °C</p> 
         </div>
     </section>
-
 </body>
 </html>

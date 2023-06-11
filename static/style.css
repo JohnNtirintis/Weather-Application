@@ -15,7 +15,16 @@ body {
 .topnav {
     position: relative;
     overflow: hidden;
+	position: sticky;
+	top: 0;
+	z-index: 100;
+	transition: background-color 0.3s ease;
   }
+
+.topnav.blue {
+	background-color: blue;
+	color: #fff;
+}
   
   /* Style the links inside the navigation bar */
 .topnav a {
@@ -197,6 +206,10 @@ body {
 	min-height: 100vh;
 } 
 
+.top-margin {
+	margin-top: 50vh;
+}
+
 .text {
     text-align: center;
 }
@@ -230,7 +243,7 @@ body {
     display: flex;
     justify-content: space-around;
     flex-wrap: wrap;
-    width: 100%; /* you can adjust this value as needed */
+    width: 100%; 
 }
 
 .weather-item {

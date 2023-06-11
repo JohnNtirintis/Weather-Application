@@ -30,3 +30,22 @@ const hiddenElements = document.querySelectorAll('.hidden');
 const menuHiddenElements = document.querySelectorAll('.menu-hidden');
 hiddenElements.forEach((el) => observer.observe(el))
 menuHiddenElements.forEach((el) => observer.observe(el))
+
+const nav = document.querySelector('.topnav');
+const observerOptions = {
+  root: null,
+  rootMargin: '0px',
+  threshold: 0.35 // Adjust the threshold as needed
+};
+
+const observer2 = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      nav.classList.remove('blue');
+    } else {
+      nav.classList.add('blue');
+    }
+  });
+}, observerOptions);
+
+observer2.observe(document.querySelector('.content-section'));
