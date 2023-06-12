@@ -6,3 +6,5 @@ api-key.txt
 /static/home-page.css
 apoutput.txt
 api-output.txt
+api-json-ex.py
+city-weather.py
