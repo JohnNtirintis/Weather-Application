@@ -8,3 +8,5 @@ apoutput.txt
 api-output.txt
 api-json-ex.py
 city-weather.py
+db-api-key.txt
+api.env

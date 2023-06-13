@@ -1,12 +1,20 @@
-from flask import Flask, url_for, redirect, render_template, request
+from flask import Flask, url_for, redirect, render_template, request, jsonify
 import requests as http_requests
 from requests import get
-import json
 from datetime import datetime
-
-#TODO: DOCUMENTATION / COMMENTS :)
+import db
 
 app = Flask(__name__)
+
+# Read Mongo API key from a txt file
+with open('db-api-key.txt', 'r') as file:
+    uri = file.readline().strip()
+
+# MongoDB
+client = db.create_client()
+mydb = db.get_db(client)
+
+collection = mydb['users']
 
 # Read API key from a txt file
 with open('api-key.txt', 'r') as file:
@@ -67,6 +75,14 @@ def search():
         return render_template('home.html')
     return by_city(city)
 
+@app.route("/data")
+def get_data():
+    cursor = collection.find()
+    results = ""
+    for document in cursor:
+        results += f"Username: {document['name']}, Password: {document['password']}\n"
+    return results, 200
+    
 # 5 day week forecast
 def week_forecast(city):
 
@@ -102,3 +118,9 @@ def week_forecast(city):
     else:
         return render_template('weather.html', error=data['message'])
 
+if __name__ == "__main__":
+    app.run(debug=True)
+
+@app.teardown_appcontext
+def shutdown_session(exception=None):
+    client.close()
