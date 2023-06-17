@@ -6,9 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Weather App</title>
 
-    <link rel="stylesheet" href="../static/main.css">
-
-    <script defer src="../static/main.js"></script>
+    <link rel="stylesheet" href="../static/css/main.css">
     <script src="https://kit.fontawesome.com/4fdd9d5910.js" crossorigin="anonymous"></script>
 </head>
 <body>
@@ -22,10 +20,20 @@
         <a href="#contact" class="active">Contact</a>
         </div>
 
+        <!-- Left Aligned Link  -->
+        <button class="topnav-button" id="showFormButton"><i class="fa-solid fa-user fa-lg" style="color: #fafafa;"></i></label></button>
+        <div class="topnav-left">
+            <form id="formContainer" class="hide" action="/login" method="get">
+                <i class="fa-solid fa-user" style="color: #fafafa;"></i></label>
+                <input id="username" type="text" name="username" placeholder="username">
+                <label for="username">
+                <i class="fa-solid fa-lock" style="color: #ffffff;"></i>
+                <input id="password" type="password" name="passowrd" placeholder="passowrd">
+                <label for="passowrd"></label>
+            </form>
+        </div>
+
         <!-- Right-aligned links -->
-        <!-- <div class="topnav-right">
-            <input class="search-bar" type="text" placeholder="&#xF002;" style="font-family:Arial, FontAwesome" />
-        </div> -->
         <div class="search-container topnav-right">
             <form action="/search" method="get">
             <input class="search expandright" id="searchright" type="text" name="city" placeholder="Search">
@@ -33,14 +41,6 @@
             </form>
         </div>
     </div>
-
-    <!-- <nav>
-        <ul class="menu menu-hidden">
-            <li class="letter menu-hidden"><a href="#" >Weather</a></li>
-            <li class="letter menu-hidden"><a href="#" >About Us</a></li>
-            <li class="letter menu-hidden"><a href="#" >Test</a></li>
-        </ul>
-    </nav> -->
 
     <section class="hidden">
         <h1>Weather Forecast</h1>
@@ -75,5 +75,6 @@
             </div>
         </div>
     </section>
+    <script defer src="../static/js/main.js"></script>
 </body>
 </html>

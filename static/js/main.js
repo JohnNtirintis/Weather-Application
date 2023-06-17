@@ -14,6 +14,15 @@ const observer = new IntersectionObserver((entries) => {
     });
 });
 
+document.getElementById("showFormButton").addEventListener('click', function() {
+  var formContainer = document.getElementById("formContainer");
+  if(!formContainer.classList.contains('visible')){
+      formContainer.classList.add("visible");
+  } else {
+      formContainer.classList.remove("visible");
+  }
+});
+
 window.onload = function() {
     var letters = document.querySelectorAll('.letter');
     var delay = 200; // delay in milliseconds
