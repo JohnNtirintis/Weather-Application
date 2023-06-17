@@ -11,3 +11,5 @@ city-weather.py
 db-api-key.txt
 api.env
 key.txt
+./weather/__pycache__
+.dist

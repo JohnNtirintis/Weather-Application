@@ -1,94 +1,83 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{{city}} weather forecast</title>
+{% extends "index.html" %}
 
-    <link rel="stylesheet" href="../static/css/style.css">
+{% block content %}
 
-    <script src="https://kit.fontawesome.com/4fdd9d5910.js" crossorigin="anonymous"></script>
-</head>
-<body>
-    <!-- Top navigation -->
-    <div class="topnav menu-hidden">
-        <!-- Centered link -->
-        <div class="topnav-centered">
-        <a href="/" class="active">Home</a>
-        <a href="#week-forecast" class="active">Weekly Forecast</a>
-        <a href="#contact" class="active">Contact</a>
-        </div>
-    
-        <!-- Right-aligned links -->
-        <!-- <div class="topnav-right">
-            <input class="search-bar" type="text" placeholder="&#xF002;" style="font-family:Arial, FontAwesome" />
-        </div> -->
-        <div class="search-container topnav-right">
-            <form action="/search" method="get">
-              <input class="search expandright" id="searchright" type="text" name="city" placeholder="Search">
-              <label class="button searchbutton" for="searchright"><span class="mglass">&#9906;</span></label>
-            </form>
-          </div>
+<!-- Top navigation -->
+<div class="topnav menu-hidden">
+    <!-- Centered link -->
+    <div class="topnav-centered">
+    <a href="/" class="active">Home</a>
+    <a href="#week-forecast" class="active">Weekly Forecast</a>
+    <a href="#contact" class="active">Contact</a>
     </div>
 
-    <!-- Remove section if you encounter any problems with centering etc. -->
-    <section>
-        {% if city %}
-        <div class="menu-hidden weather-title">
-            <h1 class="content-section">Weather forecast for city: {{city}}</h1>
-        </div>
-        <div class="hidden letter weather-text">
-            <h3>
-                <div class="weather-info">
-                    <img class="weather-icon" src="{{ icon_url }}" alt="Weather Icon">
-                    <p> {{temp}} °C</p> 
-                </div>
-                
-                Humidity: {{humidity}} <i class="fa-solid fa-droplet fa-xl" style="color: #ffffff;"></i> <br>
-                Wind Speed: {{wind_speed}}m/s N <br>
-                Weather Description: {{weather_desc}} 
-            </h3>
-        </div>
-        {% elif error%}
-            <h1 class="error-message">Error: {{error}}</h1>
-        {% else %}
-            <p>No Information Available</p>
-        {% endif %}
-    </section>
+    <!-- Right-aligned links -->
+    <!-- <div class="topnav-right">
+        <input class="search-bar" type="text" placeholder="&#xF002;" style="font-family:Arial, FontAwesome" />
+    </div> -->
+    <div class="search-container topnav-right">
+        <form action="/search" method="get">
+          <input class="search expandright" id="searchright" type="text" name="city" placeholder="Search">
+          <label class="button searchbutton" for="searchright"><span class="mglass">&#9906;</span></label>
+        </form>
+      </div>
+</div>
 
-    <section class="section top-margin" id="week-forecast">
-        <div class="hidden letter weather-title">
-            <h2>Weekly Forecast</h2>
-        </div>
-        <div class="hidden letter weekly-container">
-            {% for date, forecasts in week_data.items() %}
-            <div class="day-container">
-                <h3 class="date">{{date}}</h3>
-                <div class="hourly-forecast">
-                    {% for forecast in forecasts %}
-                    <div class="weather-item">
-                        <span>Hour: {{forecast['hour']}},</span>
-                        <span>Temp: {{ (forecast['main']['temp'])|round(2) }}</span>
-                        <img class="weather-icon" src="http://openweathermap.org/img/w/{{ forecast['weather'][0]['icon'] }}.png" alt="Weather Icon">
-                    </div>
-                    {% endfor %}
-                </div>
+<!-- Remove section if you encounter any problems with centering etc. -->
+<section>
+    {% if city %}
+    <div class="menu-hidden weather-title">
+        <h1 class="content-section">Weather forecast for city: {{city}}</h1>
+    </div>
+    <div class="hidden letter weather-text">
+        <h3>
+            <div class="weather-info">
+                <img class="weather-icon" src="{{ icon_url }}" alt="Weather Icon">
+                <p> {{temp}} °C</p> 
             </div>
-            {% endfor %}
-        </div>
-    </section>
-    
-    <section class="section" id="contact">
-        <div class="hidden weather-title">
-            <h2>This is a test</h2>
-        </div>
-        <div class="weather-info">
-            <img class="weather-icon" src="{{ icon_url }}" alt="Weather Icon">
-            <p> {{temp}} °C</p> 
-        </div>
-    </section>
+            
+            Humidity: {{humidity}} <i class="fa-solid fa-droplet fa-xl" style="color: #ffffff;"></i> <br>
+            Wind Speed: {{wind_speed}}m/s N <br>
+            Weather Description: {{weather_desc}} 
+        </h3>
+    </div>
+    {% elif error%}
+        <h1 class="error-message">Error: {{error}}</h1>
+    {% else %}
+        <p>No Information Available</p>
+    {% endif %}
+</section>
 
-    <script defer src="../static/js/main.js"></script>
-</body>
-</html>
+<section class="section top-margin" id="week-forecast">
+    <div class="hidden letter weather-title">
+        <h2>Weekly Forecast</h2>
+    </div>
+    <div class="hidden letter weekly-container">
+        {% for date, forecasts in week_data.items() %}
+        <div class="day-container">
+            <h3 class="date">{{date}}</h3>
+            <div class="hourly-forecast">
+                {% for forecast in forecasts %}
+                <div class="weather-item">
+                    <span>Hour: {{forecast['hour']}},</span>
+                    <span>Temp: {{ (forecast['main']['temp'])|round(2) }}</span>
+                    <img class="weather-icon" src="http://openweathermap.org/img/w/{{ forecast['weather'][0]['icon'] }}.png" alt="Weather Icon">
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</section>
+
+<section class="section" id="contact">
+    <div class="hidden weather-title">
+        <h2>This is a test</h2>
+    </div>
+    <div class="weather-info">
+        <img class="weather-icon" src="{{ icon_url }}" alt="Weather Icon">
+        <p> {{temp}} °C</p> 
+    </div>
+</section>
+
+{% endblock %}

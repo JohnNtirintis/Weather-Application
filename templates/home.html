@@ -1,80 +1,71 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Weather App</title>
+{% extends "index.html" %}
 
-    <link rel="stylesheet" href="../static/css/main.css">
-    <script src="https://kit.fontawesome.com/4fdd9d5910.js" crossorigin="anonymous"></script>
-</head>
-<body>
+{% block content %}
 
-    <!-- Top navigation -->
-    <div class="topnav menu-hidden">
-        <!-- Centered link -->
-        <div class="topnav-centered">
-        <a href="/" class="active">Home</a>
-        <a href="#about-us" class="active">About us</a>
-        <a href="#contact" class="active">Contact</a>
-        </div>
-
-        <!-- Left Aligned Link  -->
-        <button class="topnav-button" id="showFormButton"><i class="fa-solid fa-user fa-lg" style="color: #fafafa;"></i></label></button>
-        <div class="topnav-left">
-            <form id="formContainer" class="hide" action="/login" method="get">
-                <i class="fa-solid fa-user" style="color: #fafafa;"></i></label>
-                <input id="username" type="text" name="username" placeholder="username">
-                <label for="username">
-                <i class="fa-solid fa-lock" style="color: #ffffff;"></i>
-                <input id="password" type="password" name="passowrd" placeholder="passowrd">
-                <label for="passowrd"></label>
-            </form>
-        </div>
-
-        <!-- Right-aligned links -->
-        <div class="search-container topnav-right">
-            <form action="/search" method="get">
-            <input class="search expandright" id="searchright" type="text" name="city" placeholder="Search">
-            <label class="button searchbutton" for="searchright"><span class="mglass">&#9906;</span></label>
-            </form>
-        </div>
+<!-- Top navigation -->
+<div class="topnav menu-hidden">
+    <!-- Centered link -->
+    <div class="topnav-centered">
+    <a href="/" class="active">Home</a>
+    <a href="#about-us" class="active">About us</a>
+    <a href="#contact" class="active">Contact</a>
     </div>
 
-    <section class="hidden">
-        <h1>Weather Forecast</h1>
-        <div id="letters">
-            <p class="letter hidden">H</p>
-            <p class="letter hidden">e</p>
-            <p class="letter hidden">l</p>
-            <p class="letter hidden">l</p>
-            <p class="letter hidden">o</p>
-        </div>
-    </section>
+    <!-- Left Aligned Link  -->
+    <button class="topnav-button" id="showFormButton"><i class="fa-solid fa-user fa-lg" style="color: #fafafa;"></i></label></button>
+    <div class="topnav-left">
+        <form id="formContainer" class="hide" action="/login" method="get">
+            <i class="fa-solid fa-user" style="color: #fafafa;"></i></label>
+            <input id="username" type="text" name="username" placeholder="username">
+            <label for="username">
+            <i class="fa-solid fa-lock" style="color: #ffffff;"></i>
+            <input id="password" type="password" name="passowrd" placeholder="passowrd">
+            <label for="passowrd"></label>
+        </form>
+    </div>
 
-    <section class="hidden" id="about-us">
-        <h2>About us</h2>
-        <p class="text">Lorem ipsum dolor sit amet conae coenetenderit. Repellendus! </p>
-    </section>
+    <!-- Right-aligned links -->
+    <div class="search-container topnav-right">
+        <form action="/search" method="get">
+        <input class="search expandright" id="searchright" type="text" name="city" placeholder="Search">
+        <label class="button searchbutton" for="searchright"><span class="mglass">&#9906;</span></label>
+        </form>
+    </div>
+</div>
 
-    <section class="hidden" id="contact">
-        <h2>Contact</h2>
-        <div class="logos">
-            <div class="logo hidden">
-                <i class="fa-solid fa-cloud fa-2xl" style="color: #ffffff;"></i>
-            </div>
-            <div class="logo hidden">
-                <i class="fa-solid fa-cloud-sun-rain fa-2xl" style="color: #fafafa;"></i>
-            </div>
-            <div class="logo hidden">
-                <i class="fa-solid fa-cloud-sun fa-2xl" style="color: #ffffff;"></i>
-            </div>
-            <div class="logo hidden">
-                <i class="fa-solid fa-cloud-rain fa-2xl" style="color: #ffffff;"></i>
-            </div>
+<section class="hidden">
+    <h1>Weather Forecast</h1>
+    <div id="letters">
+        <p class="letter hidden">H</p>
+        <p class="letter hidden">e</p>
+        <p class="letter hidden">l</p>
+        <p class="letter hidden">l</p>
+        <p class="letter hidden">o</p>
+    </div>
+</section>
+
+<section class="hidden" id="about-us">
+    <h2>About us</h2>
+    <p class="text">Lorem ipsum dolor sit amet conae coenetenderit. Repellendus! </p>
+</section>
+
+<section class="hidden" id="contact">
+    <h2>Contact</h2>
+    <div class="logos">
+        <div class="logo hidden">
+            <i class="fa-solid fa-cloud fa-2xl" style="color: #ffffff;"></i>
         </div>
-    </section>
-    <script defer src="../static/js/main.js"></script>
-</body>
-</html>
+        <div class="logo hidden">
+            <i class="fa-solid fa-cloud-sun-rain fa-2xl" style="color: #fafafa;"></i>
+        </div>
+        <div class="logo hidden">
+            <i class="fa-solid fa-cloud-sun fa-2xl" style="color: #ffffff;"></i>
+        </div>
+        <div class="logo hidden">
+            <i class="fa-solid fa-cloud-rain fa-2xl" style="color: #ffffff;"></i>
+        </div>
+    </div>
+</section>
+
+
+{% endblock %}
