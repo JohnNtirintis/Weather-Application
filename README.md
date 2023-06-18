@@ -31,11 +31,11 @@ cd Weather-Application
 
 Install the necessary packages
 ```md
-pip install flask requests flask_sqlalchemy wtforms flask_login bcrypt
+pip install flask requests wtforms flask_login bcrypt
 ```
 OR if you have python 3.9 or 3.11 you can use:
 ```md
-pip3 flask requests flask_sqlalchemy wtforms flask_login bcrypt
+pip3 flask requests wtforms flask_login bcrypt
 ```
 <h2>OpenWeatherMap API Key</h2>
 <p>For this project you will need an API key to make requests to OpenWeatherMap, if you dont add an API key this project will not work.</p>
