@@ -13,3 +13,5 @@ api.env
 key.txt
 ./weather/__pycache__
 .dist
+./user/__pycache__
+/weather/__pycache__
