@@ -30,6 +30,10 @@ from weather import weather_routes
 def home_page():
     return render_template('home.html')
 
+@app.route('/user', methods=["POST", "GET"])
+def user():
+  return render_template("user.html")
+
 @app.route("/dashboard")
 @login_required
 def dashboard():
