@@ -31,7 +31,7 @@ class Weather:
 
             # Using week_forecast func to store the data in a dict 
             # then use the data in html with jinja
-            week_data = week_forecast(data['id'])
+            week_data = self.week_forecast(data['id'])
             #weekly_data_icon = week_data['weather']['0']['icon']
             return render_template('weather.html', city=city, week_data=week_data, icon_url= f"http://openweathermap.org/img/w/{icon_code}.png" ,temp=data['main']['temp'], humidity=data['main']['humidity'], 
                                 weather_desc=data['weather'][0]['description'], wind_speed=data['wind']['speed'])
@@ -91,4 +91,4 @@ class Weather:
         # TODO: Implement a better error handling.
         if not city:
             return render_template('home.html')
-        return self.weather_by_cityby_city(city)
+        return self.weather_by_city(city)

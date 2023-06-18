@@ -1,5 +1,9 @@
 {% extends "index.html" %}
 
+{% block css %}
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
+{% endblock %}
+
 {% block content %}
 
 <!-- Top navigation -->
@@ -12,15 +16,17 @@
     </div>
 
     <!-- Left Aligned Link  -->
-    <button class="topnav-button" id="showFormButton"><i class="fa-solid fa-user fa-lg" style="color: #fafafa;"></i></label></button>
+    <button class="topnav-button" id="showFormButton"><i class="fa-solid fa-user fa-lg" style="color: #ffffff;"></i></label></button>
     <div class="topnav-left">
-        <form id="formContainer" class="hide" action="/login" method="get">
-            <i class="fa-solid fa-user" style="color: #fafafa;"></i></label>
-            <input id="username" type="text" name="username" placeholder="username">
-            <label for="username">
+        <form id="formContainer" name="signup_form" class="hide" action="/login" method="get">
+            <i class="fa-solid fa-user" style="color: #ffffff;"></i></label>
+            <input type="text" name="name" placeholder="username" required>
+            
             <i class="fa-solid fa-lock" style="color: #ffffff;"></i>
-            <input id="password" type="password" name="passowrd" placeholder="passowrd">
-            <label for="passowrd"></label>
+            <input type="password" name="passowrd" placeholder="password" required>
+
+            <input class="submit-btn" type="submit" value="Log in"> 
+            <input class="submit-btn" type="submit" value="Sign up">
         </form>
     </div>
 
@@ -67,5 +73,11 @@
     </div>
 </section>
 
+{% endblock %}
 
+{% block js %}
+<!-- Include scripts from parent templates
+        i.e. jquery.js -->
+<!-- {{ super( )}} -->
+<script src="{{ url_for('static', filename='js/main.js') }}"></script>
 {% endblock %}

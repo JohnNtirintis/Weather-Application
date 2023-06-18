@@ -1,5 +1,9 @@
 {% extends "index.html" %}
 
+{% block css %}
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+{% endblock %}
+
 {% block content %}
 
 <!-- Top navigation -->
@@ -12,9 +16,6 @@
     </div>
 
     <!-- Right-aligned links -->
-    <!-- <div class="topnav-right">
-        <input class="search-bar" type="text" placeholder="&#xF002;" style="font-family:Arial, FontAwesome" />
-    </div> -->
     <div class="search-container topnav-right">
         <form action="/search" method="get">
           <input class="search expandright" id="searchright" type="text" name="city" placeholder="Search">
@@ -80,4 +81,10 @@
     </div>
 </section>
 
+{% endblock %}
+
+{% block js %}
+<!-- Include scripts from parent templates -->
+<!-- {{ super( )}} -->
+<script src="{{ url_for('static', filename='js/style.js') }}"></script>
 {% endblock %}

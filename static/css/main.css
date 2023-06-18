@@ -47,13 +47,11 @@ body {
 .topnav-button {
     background-color: black;
     border: none;
-    /* outline: none; */
     padding: 5px;
     position: absolute;
     top: 47%;
     margin-right: 0px;
     margin-left: 2px;
-    /* transform: translate(-50%, -50%); */
     display: flex;
     align-items: left;
 }
@@ -69,7 +67,7 @@ body {
 	visibility: visible;
 	opacity: 1;
 	filter: blur(0px);
-    transform: translateX(50px);
+    transform: translateX(15px);
     transition: all 1s;
 }
 
@@ -275,4 +273,3 @@ section {
 .logo:nth-child(4){
     transition-delay: 600ms;
 }
-
