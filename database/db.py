@@ -9,9 +9,11 @@ def create_client():
     return client
 
 def get_db(client):
-    # This function returns the database object which you will use to interact with the database
-    db = client['movies1']
+    db = client['users']
     return db
+
+def get_collection(db):
+    col = db['users-credentials']
 
 def close_client(client):
     # Always close when done

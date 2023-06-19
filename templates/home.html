@@ -23,7 +23,7 @@
             <input type="text" name="name" placeholder="username" required>
             
             <i class="fa-solid fa-lock" style="color: #ffffff;"></i>
-            <input type="password" name="passowrd" placeholder="password" required>
+            <input type="password" name="password" placeholder="password" required>
 
             <input class="submit-btn" type="submit" value="Log in">
         </form>
@@ -80,4 +80,6 @@
         i.e. jquery.js -->
 <!-- {{ super( )}} -->
 <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+<script src="{{ url_for('static', filename='js/jquery.js') }}"></script>
+<script src="{{ url_for('static', filename='js/user_script.js') }}"></script>
 {% endblock %}

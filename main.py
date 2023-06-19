@@ -3,13 +3,14 @@ from functools import wraps
 import pymongo
 
 app = Flask(__name__)
+app.secret_key = b'\x8b\xf3\x08\xba\xe5CT\x8f\n\xd2V\xafL\x9a\xf8'
 
 # Read Mongo API key from a txt file
 with open('db-api-key.txt', 'r') as file:
     uri = file.readline().strip()
 
-client = pymongo.MongoClient(uri)
-db = client.user_login_system
+client = pymongo.MongoClient(uri) 
+db = client.users
 
 # Decorators
 def login_required(f):
@@ -34,8 +35,8 @@ def home_page():
 def user():
   return render_template("user.html")
 
-@app.route("/dashboard")
+@app.route("/dashboard/")
 @login_required
 def dashboard():
   #TODO: Dashboard Template
-  return "Dashboard"
+  return render_template("user_dashboard.html")
