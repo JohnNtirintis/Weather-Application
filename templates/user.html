@@ -1,0 +1,72 @@
+{% extends "index.html" %}
+
+{% block css %}
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/user_style.css') }}">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" 
+  integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" 
+  crossorigin="anonymous">
+{% endblock %}
+
+{% block content %}
+
+<div class="container  p-4">
+    <div class="row main mt-5">
+
+        <!-- sign up form -->
+
+        <div class="col-md-6 p-5 " id="signUp">
+            <h1 class="display-4 text-center white">Sign up</h1>
+            <form name="signup_form" class="d-flex justify-content-center mt-4">
+                <div class="w-75 ">
+                    <div class="form-group">
+                        <label class="white" for="email">Email</label>
+                        <input type="email" name="email" class="field" required>
+                    </div>
+                    <div class="form-group my-4">
+                        <label class="white" for="password">Password</label>
+                        <input type="password" name="password" class="field" required>
+                    </div>
+                    <button class="white" type="submit" value="Sign up">Register</button>
+                    <div class="d-flex justify-content-between mt-5">
+                        <a class="links white" href="#" id="loginLink">Already have an Account ?</a>
+                        <p class="white error error--hidden">Error Signing Up!</p>
+                    </div>
+                </div>
+            </form>
+        </div>
+
+        <!-- Login Form  -->
+        
+        <div class="col-md-6 p-5 white" id="login">
+            <h1 class="display-4 text-center white">Login</h1>
+            <form name="login_form" class="d-flex justify-content-center mt-4">
+                <div class="w-75 ">
+                    <div class="form-group">
+                        <label class="white" for="email">Email</label>
+                        <input type="email" name="email" required>
+                    </div>
+                    <div class="form-group my-4">
+                        <label class="white" for="password">Password</label>
+                        <input type="password" name="password" required>
+                    </div>
+                    <button type="submit">Login</button>
+                    <div class="d-flex justify-content-between mt-5">
+                        <a class="links white" href="#" id="registerLink">Create an Account ?</a>
+                        <p class="error error-hidden">Error: Invalid Credentials</p>
+                    </div>
+                </div>
+            </form>
+        </div>
+        <div  id="overlay">
+            <p id="overlay-text">Welcome back friend. How you've been?</p>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
+
+{% block js %}
+<script src="{{ url_for('static', filename='js/jquery.js') }}"></script>
+<script src="{{ url_for('static', filename='js/user_style.js') }}"></script>
+<script src="{{ url_for('static', filename='js/user_script.js') }}"></script>
+{% endblock %}

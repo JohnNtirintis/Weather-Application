@@ -1,0 +1,18 @@
+{% extends "index.html" %}
+
+{% block css %}
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/user_style.css') }}">
+{% endblock %}
+
+{% block content %}
+
+    <h1 style="color: red;">This is the user's dashboard</h1>
+
+
+{% endblock %}
+
+{% block js %}
+<script src="{{ url_for('static', filename='js/jquery.js') }}"></script>
+<script src="{{ url_for('static', filename='js/main.js') }}"></script>
+<script src="{{ url_for('static', filename='js/user_script.js') }}"></script>
+{% endblock %}

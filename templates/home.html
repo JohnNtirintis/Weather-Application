@@ -23,11 +23,11 @@
             <input type="text" name="name" placeholder="username" required>
             
             <i class="fa-solid fa-lock" style="color: #ffffff;"></i>
-            <input type="password" name="passowrd" placeholder="password" required>
+            <input type="password" name="password" placeholder="password" required>
 
-            <input class="submit-btn" type="submit" value="Log in"> 
-            <input class="submit-btn" type="submit" value="Sign up">
+            <input class="submit-btn" type="submit" value="Log in">
         </form>
+        <a id="signup-link" class="signup-link hide" href="user/signup">Or Register here!</a>
     </div>
 
     <!-- Right-aligned links -->
@@ -80,4 +80,6 @@
         i.e. jquery.js -->
 <!-- {{ super( )}} -->
 <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+<script src="{{ url_for('static', filename='js/jquery.js') }}"></script>
+<script src="{{ url_for('static', filename='js/user_script.js') }}"></script>
 {% endblock %}

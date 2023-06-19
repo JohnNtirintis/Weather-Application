@@ -39,7 +39,7 @@ body {
 .topnav-left {
     margin-left: 20px;
     position: absolute;
-    top: 32%;
+    top: 36%;
     margin-left: 28px;
     display: flex;
 }
@@ -49,7 +49,7 @@ body {
     border: none;
     padding: 5px;
     position: absolute;
-    top: 47%;
+    top: 40%;
     margin-right: 0px;
     margin-left: 2px;
     display: flex;
@@ -78,6 +78,9 @@ body {
 /* Right-aligned section inside the top navigation */
 .topnav-right {
     float: right;
+}
+.signup-link{
+    margin-top: -13px;
 }
 
 .button {

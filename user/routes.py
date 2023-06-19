@@ -4,7 +4,11 @@ from user.models import User
 
 # User related routes
 
-@app.route('/user/signup', methods=['POST'])
+@app.route('/user', methods=['GET', 'POST'])
+def signup_form():
+  return User().signup_form()
+
+@app.route('/user/signup/', methods=['GET', 'POST'])
 def signup():
   return User().signup()
 
@@ -15,4 +19,3 @@ def signout():
 @app.route('/user/login', methods=['POST'])
 def login():
   return User().login()
-
