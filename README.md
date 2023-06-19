@@ -1,7 +1,7 @@
 <h1>SimpleWeather - A Minimal Weather Application</h1>
 This is a simple Flask-based application that gives you the current or weekly weather data for any city in the world. You can also get weather data for your current location (based on your IP address). The data includes city name, temperature, humidity, wind speed, and weather description.
 
-The application is currently under development with features like user registration and authentication in progress.
+<br> The application is currently under development with features like user registration and authentication in progress.
 
 <h2>Getting Started</h2>
 These instructions will get you a copy of the project up and running on your local machine for development and testing purposes.
