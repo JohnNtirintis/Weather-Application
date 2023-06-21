@@ -12,21 +12,16 @@ body {
     padding: 0;
     margin: 0;
 }
+
 .topnav {
     position: relative;
     overflow: hidden;
 	position: sticky;
-	top: 0;
+	/* top: 0;
 	z-index: 100;
-	transition: background-color 0.3s ease;
+	transition: background-color 0.3s ease; */
 }
 
-.topnav.blue {
-	background-color: blue;
-	color: #fff;
-}
-  
-  /* Style the links inside the navigation bar */
 .topnav a {
     float: left;
     color: #f2f2f2;
@@ -35,7 +30,7 @@ body {
     text-decoration: none;
     font-size: 17px;
 }
-  /* Centered Nav */
+
 .topnav-centered {
     position: absolute;
     top: 50%;
@@ -43,6 +38,41 @@ body {
     transform: translate(-50%, -50%);
     display: flex;
     align-items: center;
+}
+
+.topnav-left {
+    margin-left: 20px;
+    position: absolute;
+    top: 26%;
+    margin-left: 28px;
+    display: flex;
+}
+
+.topnav-button {
+    background-color: black;
+    border: none;
+    padding: 5px;
+    position: absolute;
+    top: 40%;
+    margin-right: 0px;
+    margin-left: 2px;
+    display: flex;
+    align-items: left;
+}
+
+.hide {
+    margin-left: 0.1px;
+	visibility: hidden;
+	opacity: 0;
+}
+
+.visible{
+	display: block;
+	visibility: visible;
+	opacity: 1;
+	filter: blur(0px);
+    transform: translateX(15px);
+    transition: all 1s;
 }
 
 .topnav-centered a {
@@ -53,7 +83,18 @@ body {
 .topnav-right {
     float: right;
 }
+.signup-link{
+    margin-top: -13px;
+}
 
+#star {
+	color: #ffffff;
+}
+
+.topnav.blue {
+	background-color: #221033;
+	color: #fff;
+}
 .button {
 	display: inline-block;
 	margin: 4px 2px;
@@ -72,6 +113,17 @@ body {
 	-webkit-user-select: none;
 	-ms-user-select: none;
 	user-select: none;
+}
+
+.favorite-btn {
+	background-color: #131316;
+	border: none;
+	position: absolute;
+	top: 29%;
+}
+
+#favoriteCity {
+	cursor: pointer;
 }
 
 .search-container {

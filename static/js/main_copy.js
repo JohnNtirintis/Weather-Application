@@ -14,30 +14,6 @@ const observer = new IntersectionObserver((entries) => {
     });
 });
 
-const hiddenElements = document.querySelectorAll('.hidden');
-const menuHiddenElements = document.querySelectorAll('.menu-hidden');
-hiddenElements.forEach((el) => observer.observe(el))
-menuHiddenElements.forEach((el) => observer.observe(el))
-
-const nav = document.querySelector('.topnav');
-const observerOptions = {
-  root: null,
-  rootMargin: '0px',
-  threshold: 0.35 // Adjust the threshold as needed
-};
-
-document.getElementById("showFormButton").addEventListener('click', function() {
-  var formContainer = document.getElementById("formContainer");
-  var signup = document.getElementById("signup-link")
-  if(!formContainer.classList.contains('visible') && (!signup.classList.contains('visible'))){
-      formContainer.classList.add("visible");
-      signup.classList.add('visible');
-  } else {
-      formContainer.classList.remove("visible");
-      signup.classList.remove('visible')
-  }
-});
-
 window.onload = function() {
     var letters = document.querySelectorAll('.letter');
     var delay = 200; // delay in milliseconds
@@ -48,6 +24,18 @@ window.onload = function() {
             }, delay * index);
         })(i);
     }
+};
+
+const hiddenElements = document.querySelectorAll('.hidden');
+const menuHiddenElements = document.querySelectorAll('.menu-hidden');
+hiddenElements.forEach((el) => observer.observe(el))
+menuHiddenElements.forEach((el) => observer.observe(el))
+
+const nav = document.querySelector('.topnav');
+const observerOptions = {
+  root: null,
+  rootMargin: '0px',
+  threshold: 0.35 // Adjust the threshold as needed
 };
 
 const observer2 = new IntersectionObserver(entries => {

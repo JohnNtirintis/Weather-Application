@@ -1,4 +1,4 @@
-from flask import Flask, url_for, redirect, render_template, request, jsonify
+from flask import Flask, url_for, redirect, render_template, request, jsonify, session
 from main import app
 from datetime import datetime
 from requests import get
@@ -33,7 +33,7 @@ class Weather:
             # then use the data in html with jinja
             week_data = self.week_forecast(data['id'])
             #weekly_data_icon = week_data['weather']['0']['icon']
-            return render_template('weather.html', city=city, week_data=week_data, icon_url= f"http://openweathermap.org/img/w/{icon_code}.png" ,temp=data['main']['temp'], humidity=data['main']['humidity'], 
+            return render_template('weather.html', city=city, user = session.get('user') ,week_data=week_data, icon_url= f"http://openweathermap.org/img/w/{icon_code}.png" ,temp=data['main']['temp'], humidity=data['main']['humidity'], 
                                 weather_desc=data['weather'][0]['description'], wind_speed=data['wind']['speed'])
         # In case of error, print the error message to notify the user
         else:
@@ -80,7 +80,7 @@ class Weather:
                 daily_data[date_str].append(item)
             return daily_data
         else:
-            return render_template('weather.html', error=data['message'])
+            return render_template('weather.html', error=data['message'], user =session.get('user'))
         
     # This function and route is the basis of the search function
     def search(self):
@@ -90,5 +90,5 @@ class Weather:
         # Redirect them to the home page
         # TODO: Implement a better error handling.
         if not city:
-            return render_template('home.html')
+            return render_template('home.html', user=session.get('user'))
         return self.weather_by_city(city)

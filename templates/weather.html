@@ -22,13 +22,39 @@
           <label class="button searchbutton" for="searchright"><span class="mglass">&#9906;</span></label>
         </form>
       </div>
+
+    <!-- Left Aligned Links  -->
+    {% if user %}
+        <div class="topnav-left">
+            <p>{{session['user']['email']}}</p>
+        </div>
+    {% else %}
+        <button class="topnav-button" id="showFormButton"><i class="fa-solid fa-user fa-lg" style="color: #ffffff;"></i></label></button>
+        <div class="topnav-left">
+            <form id="formContainer" name="signup_form" class="hide" action="/login" method="get">
+                <i class="fa-solid fa-user" style="color: #ffffff;"></i></label>
+                <input type="text" name="name" placeholder="username" required>
+                
+                <i class="fa-solid fa-lock" style="color: #ffffff;"></i>
+                <input type="password" name="password" placeholder="password" required>
+
+                <input class="submit-btn" type="submit" value="Log in">
+            </form>
+            <a id="signup-link" class="signup-link hide" href="/user">Or Register here!</a>
+        </div>
+    {% endif %}
 </div>
 
 <!-- Remove section if you encounter any problems with centering etc. -->
 <section>
     {% if city %}
     <div class="menu-hidden weather-title">
-        <h1 class="content-section">Weather forecast for city: {{city}}</h1>
+        <h1 class="content-section">Weather forecast for city: {{city}}
+            <button class="favorite-btn" id="favoriteCity">
+            <i id="star" class="fa-sharp fa-solid fa-star fa-lg"></i></button>    
+        </h1>
+             
+    
     </div>
     <div class="hidden letter weather-text">
         <h3>
@@ -87,4 +113,5 @@
 <!-- Include scripts from parent templates -->
 <!-- {{ super( )}} -->
 <script src="{{ url_for('static', filename='js/style.js') }}"></script>
+<!-- <script src="{{ url_for('static', filename='js/user_script.js') }}"></script> -->
 {% endblock %}

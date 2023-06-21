@@ -16,19 +16,25 @@
     </div>
 
     <!-- Left Aligned Link  -->
-    <button class="topnav-button" id="showFormButton"><i class="fa-solid fa-user fa-lg" style="color: #ffffff;"></i></label></button>
-    <div class="topnav-left">
-        <form id="formContainer" name="signup_form" class="hide" action="/login" method="get">
-            <i class="fa-solid fa-user" style="color: #ffffff;"></i></label>
-            <input type="text" name="name" placeholder="username" required>
-            
-            <i class="fa-solid fa-lock" style="color: #ffffff;"></i>
-            <input type="password" name="password" placeholder="password" required>
+    {% if user %}
+        <div class="topnav-left">
+            <p>{{session['user']['email']}}</p>
+        </div>
+    {% else %}
+        <button class="topnav-button" id="showFormButton"><i class="fa-solid fa-user fa-lg" style="color: #ffffff;"></i></label></button>
+        <div class="topnav-left">
+            <form id="formContainer" name="signup_form" class="hide" action="/login" method="get">
+                <i class="fa-solid fa-user" style="color: #ffffff;"></i></label>
+                <input type="text" name="name" placeholder="username" required>
+                
+                <i class="fa-solid fa-lock" style="color: #ffffff;"></i>
+                <input type="password" name="password" placeholder="password" required>
 
-            <input class="submit-btn" type="submit" value="Log in">
-        </form>
-        <a id="signup-link" class="signup-link hide" href="user/signup">Or Register here!</a>
-    </div>
+                <input class="submit-btn" type="submit" value="Log in">
+            </form>
+            <a id="signup-link" class="signup-link hide" href="/user">Or Register here!</a>
+        </div>
+    {% endif %}
 
     <!-- Right-aligned links -->
     <div class="search-container topnav-right">

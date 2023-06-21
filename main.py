@@ -29,7 +29,8 @@ from weather import weather_routes
 # Home page
 @app.route('/')
 def home_page():
-    return render_template('home.html')
+  app.logger.info('Current user: %s', session.get('user'))
+  return render_template('home.html', user=session.get('user'))
 
 @app.route('/user', methods=["POST", "GET"])
 def user():

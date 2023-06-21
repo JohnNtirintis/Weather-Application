@@ -15,7 +15,6 @@ body {
 .topnav {
     position: relative;
     overflow: hidden;
-    /* position: sticky; */
 }
   
   /* Style the links inside the navigation bar */
@@ -27,7 +26,6 @@ body {
     text-decoration: none;
     font-size: 17px;
 }
-
   /* Centered Nav */
 .topnav-centered {
     position: absolute;
@@ -39,9 +37,8 @@ body {
 }
 
 .topnav-left {
-    margin-left: 20px;
     position: absolute;
-    top: 36%;
+    top: 7%;
     margin-left: 28px;
     display: flex;
 }
@@ -56,12 +53,6 @@ body {
     margin-left: 2px;
     display: flex;
     align-items: left;
-}
-
-.hide {
-    margin-left: 0.1px;
-	visibility: hidden;
-	opacity: 0;
 }
 
 .visible{
@@ -211,6 +202,18 @@ section {
     padding: 10px;
 }
 
+/* Can be used to limit the animations
+   Depending on the users browsers settings/preferences
+
+@media(prefers-reduced-motion){
+.hidden {
+    opacity: 0;
+    filter: blur(5px);
+    transform: translateX(-100%);
+    transition: all 1s;
+}
+} */
+
 .letter {
     display: inline;
     opacity: 0;
@@ -219,9 +222,16 @@ section {
     transition: all 1s;
 }
 
+/* .letter {
+    display: inline;
+    opacity: 0;
+    transition: opacity 0.5s;
+} */
+
 .menu-hidden {
     opacity: 0;
     filter: blur(5px);
+    /* transform: translateX(-100%); */
     transition: all 1s;
 }
 

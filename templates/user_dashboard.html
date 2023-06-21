@@ -1,18 +1,54 @@
 {% extends "index.html" %}
 
 {% block css %}
-  <link rel="stylesheet" href="{{ url_for('static', filename='css/user_style.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/main_user.css') }}">
 {% endblock %}
 
 {% block content %}
 
-    <h1 style="color: red;">This is the user's dashboard</h1>
+  <!-- Top navigation -->
+  <div class="topnav menu-hidden">
+    <!-- Centered link -->
+    <div class="topnav-centered">
+    <a href="/" class="active">Home</a>
+    <a href="#user-information" class="active">User Info</a>
+    <a href="#favorite-cities" class="active">Favorite Cities</a>
+    </div>
+
+    <!-- Left Aligned Link  -->
+    <div class="topnav-left">
+        <p>{{session['user']['email']}}</p>
+    </div>
+
+    <!-- Right-aligned links -->
+    <div class="search-container topnav-right">
+        <form action="/search" method="get">
+        <input class="search expandright" id="searchright" type="text" name="city" placeholder="Search">
+        <label class="button searchbutton" for="searchright"><span class="mglass">&#9906;</span></label>
+        </form>
+    </div>
+  </div>
+
+  <section class="hidden" id="user-information">
+    <h2>User Information</h2>
+    <p>
+      <strong>ID:</strong> {{session['user']['_id']}}<br>
+      <strong>Email:</strong> {{session['user']['email']}}<br>
+    </p>
+  </section>
+
+  <section class="hidden" id="favorite-cities">
+    <h2>Favorite Cities <i class="fa-sharp fa-solid fa-star" style="color: #e8cc17;"></i></h2>
+
+  </section>
+
+
 
 
 {% endblock %}
 
 {% block js %}
 <script src="{{ url_for('static', filename='js/jquery.js') }}"></script>
-<script src="{{ url_for('static', filename='js/main.js') }}"></script>
+<script src="{{ url_for('static', filename='js/main_copy.js') }}"></script>
 <script src="{{ url_for('static', filename='js/user_script.js') }}"></script>
 {% endblock %}
