@@ -19,3 +19,7 @@ def signout():
 @app.route('/user/login', methods=['POST'])
 def login():
   return User().login()
+
+@app.route('/add_city_to_favorites', methods=['GET', 'POST'])
+def add_city_to_favorites():
+  return User().add_city_to_favorites()

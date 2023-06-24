@@ -85,12 +85,32 @@ function rgbToHex(rgb) {
 let star_button = document.getElementById('favoriteCity');
 
 star_button.addEventListener('click', function() {
+  let cityName = this.getAttribute('data-city');
   let star = document.getElementById('star');
   let currentColor = window.getComputedStyle(star).getPropertyValue('color');
   let hexColor = rgbToHex(currentColor);
 
   if(hexColor == "#ffffff"){
     star.style.color = '#e8cc17';
+    fetch('/add_city_to_favorites', {
+      method: 'POST',
+      dataType: 'json',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({ city: cityName }),
+    })
+    .then(response => response.json())
+    .then(data => {
+      if (data.success) {
+        this.classList.add('favorited');
+        alert("favorited")
+        console.log("HELLOOOO")
+      }
+    })
+    .catch((error) => {
+      console.error('Error:', error);
+    });
   } else if(hexColor == '#e8cc17'){
     star.style.color = '#ffffff';
   }

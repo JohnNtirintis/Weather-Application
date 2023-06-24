@@ -10,7 +10,8 @@ with open('db-api-key.txt', 'r') as file:
     uri = file.readline().strip()
 
 client = pymongo.MongoClient(uri) 
-db = client.users
+# db = client.users
+db = client['users']
 
 # Decorators
 def login_required(f):

@@ -17,9 +17,9 @@ class User:
     # Create the user object
     user = {
       "_id": uuid.uuid4().hex,
-      # "name": request.form.get('name'),
       "email": request.form.get('email'),
-      "password": request.form.get('password')
+      "password": request.form.get('password'),
+      "favorite_cities": []
     }
 
     # Encrypt the password
@@ -52,4 +52,12 @@ class User:
     if user and pbkdf2_sha256.verify(request.form.get('password'), user['password']):
       return self.start_session(user)
     
-    return jsonify({ "error": "Invalid login credentials" }), 401
+    return jsonify({"error": "Invalid login credentials" }), 401
+  
+  def add_city_to_favorites(self):
+    data = request.get_json()
+    city = data.get("city")
+
+    user_email = session['user']["email"]
+    db.users.update_one({"email": user_email}, {"$push": {"favorite_cities": city}})
+    return jsonify({"success" : "Added city to favorites"}), 200

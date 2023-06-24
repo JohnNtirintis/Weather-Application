@@ -18,7 +18,7 @@
     <!-- Left Aligned Link  -->
     {% if user %}
         <div class="topnav-left">
-            <p>{{session['user']['email']}}</p>
+            <a href="/dashboard">{{session['user']['email']}}</a>
         </div>
     {% else %}
         <button class="topnav-button" id="showFormButton"><i class="fa-solid fa-user fa-lg" style="color: #ffffff;"></i></label></button>

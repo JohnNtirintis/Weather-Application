@@ -26,7 +26,7 @@
     <!-- Left Aligned Links  -->
     {% if user %}
         <div class="topnav-left">
-            <p>{{session['user']['email']}}</p>
+            <a href="/dashboard">{{session['user']['email']}}</a>
         </div>
     {% else %}
         <button class="topnav-button" id="showFormButton"><i class="fa-solid fa-user fa-lg" style="color: #ffffff;"></i></label></button>
@@ -49,13 +49,18 @@
 <section>
     {% if city %}
     <div class="menu-hidden weather-title">
-        <h1 class="content-section">Weather forecast for city: {{city}}
-            <button class="favorite-btn" id="favoriteCity">
-            <i id="star" class="fa-sharp fa-solid fa-star fa-lg"></i></button>    
-        </h1>
-             
-    
+        {% if user %}
+            <h1 id="city" name="city"class="city content-section">Weather forecast for city: {{city}}
+                <button class="favorite-btn star-btn" id="favoriteCity" data-city="Athens">
+                <i id="star" class="fa-sharp fa-solid fa-star fa-lg star-btn"></i></button>    
+            </h1>
+        {% else %}
+            <h1 class="content-section">Weather forecast for city: {{city}}
+                <button class="favorite-btn" id="favoriteCity">
+            </h1>
+        {% endif %}
     </div>
+
     <div class="hidden letter weather-text">
         <h3>
             <div class="weather-info">
@@ -112,6 +117,6 @@
 {% block js %}
 <!-- Include scripts from parent templates -->
 <!-- {{ super( )}} -->
+<script src="{{ url_for('static', filename='js/jquery.js') }}"></script>
 <script src="{{ url_for('static', filename='js/style.js') }}"></script>
-<!-- <script src="{{ url_for('static', filename='js/user_script.js') }}"></script> -->
 {% endblock %}

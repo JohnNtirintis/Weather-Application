@@ -14,3 +14,4 @@ key.txt
 .dist
 /user/__pycache__
 /weather/__pycache__
+/static/js/weather_user_script.js
