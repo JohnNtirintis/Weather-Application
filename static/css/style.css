@@ -13,6 +13,12 @@ body {
     margin: 0;
 }
 
+.login-btn {
+    background-color: #131316;
+    border: none;
+    color: #ffffff;
+}
+
 .topnav {
     position: relative;
     overflow: hidden;

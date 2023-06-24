@@ -27,6 +27,7 @@
     {% if user %}
         <div class="topnav-left">
             <a href="/dashboard">{{session['user']['email']}}</a>
+            <button class="login-btn" type="signout"><a href="user/signout">Signout</a></button>
         </div>
     {% else %}
         <button class="topnav-button" id="showFormButton"><i class="fa-solid fa-user fa-lg" style="color: #ffffff;"></i></label></button>
@@ -51,7 +52,7 @@
     <div class="menu-hidden weather-title">
         {% if user %}
             <h1 id="city" name="city"class="city content-section">Weather forecast for city: {{city}}
-                <button class="favorite-btn star-btn" id="favoriteCity" data-city="Athens">
+                <button class="favorite-btn star-btn" id="favoriteCity" data-city="{{city}}">
                 <i id="star" class="fa-sharp fa-solid fa-star fa-lg star-btn"></i></button>    
             </h1>
         {% else %}

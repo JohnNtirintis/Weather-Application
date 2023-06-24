@@ -37,8 +37,7 @@ def home_page():
 def user():
   return render_template("user.html")
 
-@app.route("/dashboard/")
+@app.route("/dashboard/", methods=["GET"])
 @login_required
 def dashboard():
-  #TODO: Dashboard Template
   return render_template("user_dashboard.html")

@@ -46,6 +46,12 @@ body {
     display: flex;
 }
 
+.login-btn {
+    background-color: #131316;
+    border: none;
+    color: #ffffff;
+}
+
 .topnav-button {
     background-color: black;
     border: none;
