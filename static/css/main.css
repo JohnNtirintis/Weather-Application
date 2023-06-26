@@ -276,3 +276,17 @@ section {
 .logo:nth-child(4){
     transition-delay: 600ms;
 }
+
+.contact-list {
+    text-decoration: none;
+    color: #ffffff;
+}
+
+.contact-list:visited {
+    color: inherit;
+}
+
+contact-list:hover, contact-list:active {   
+    color: inherit;
+    text-decoration: none;
+}
