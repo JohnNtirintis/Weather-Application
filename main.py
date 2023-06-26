@@ -5,12 +5,8 @@ import pymongo
 app = Flask(__name__)
 app.secret_key = b'\x8b\xf3\x08\xba\xe5CT\x8f\n\xd2V\xafL\x9a\xf8'
 
-# Read Mongo API key from a txt file
-with open('db-api-key.txt', 'r') as file:
-    uri = file.readline().strip()
-
-client = pymongo.MongoClient(uri) 
-# db = client.users
+# Localhost Database
+client = pymongo.MongoClient('localhost', 27017) 
 db = client['users']
 
 # Decorators
