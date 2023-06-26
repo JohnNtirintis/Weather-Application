@@ -100,6 +100,14 @@ button:hover {
     /* color: rgb(3, 48, 197); */
 }
 
+.error {
+    color: var(--red);
+}
+
+.error--hidden {
+  display: none;
+}
+
 #overlay {
     /* background-color: #3612d6; */
     /* background-image: linear-gradient(90deg, #000000 0%, #1e0030 50%, #000000 100%); */

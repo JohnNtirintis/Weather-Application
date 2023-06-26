@@ -27,7 +27,7 @@
     {% if user %}
         <div class="topnav-left">
             <a href="/dashboard">{{session['user']['email']}}</a>
-            <button class="login-btn" type="signout"><a href="user/signout">Signout</a></button>
+            <button class="login-btn" type="signout"><a href="/user/signout">Signout</a></button>
         </div>
     {% else %}
         <button class="topnav-button" id="showFormButton"><i class="fa-solid fa-user fa-lg" style="color: #ffffff;"></i></label></button>

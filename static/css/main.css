@@ -52,6 +52,17 @@ body {
     color: #ffffff;
 }
 
+.error {
+    color: red;
+    font-size: 16px;
+    text-align: center;
+    margin-top: 20px;
+}
+
+.error--hidden {
+    display: none;
+}
+
 .topnav-button {
     background-color: black;
     border: none;

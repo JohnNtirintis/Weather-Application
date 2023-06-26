@@ -18,7 +18,7 @@
     <!-- Left Aligned Link  -->
     <div class="topnav-left">
         <p>{{session['user']['email']}}</p>
-        <button class="login-btn" type="signout"><a href="user/signout">Signout</a></button>
+        <button class="login-btn" type="signout"><a href="/user/signout">Signout</a></button>
     </div>
 
     <!-- Right-aligned links -->
@@ -42,7 +42,8 @@
     <h2>Favorite Cities <i class="fa-sharp fa-solid fa-star" style="color: #e8cc17;"></i></h2>
     {% if session['user']['favorite_cities'] %}
           {% for city in session['user']['favorite_cities'] %}
-             {{city}}
+            <a class="city-name" href="/search?city={{city}}">{{city}}</a>
+             <!-- {{city}} -->
           {% endfor %}
       {% else %}
         <p>No favorite Cities yet.</p>
