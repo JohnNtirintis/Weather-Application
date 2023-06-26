@@ -1,80 +1,80 @@
-<h1>SimpleWeather - A Minimal Weather Application</h1>
-This is a simple Flask-based application that gives you the current or weekly weather data for any city in the world. You can also get weather data for your current location (based on your IP address). The data includes city name, temperature, humidity, wind speed, and weather description.
+# SimpleWeather - A Modern, User-Centric Weather Application
 
-<br> The application is currently under development with features like user registration and authentication in progress.
+SimpleWeather is a Flask and MongoDB-based web application that provides users with current and weekly weather data for any city in the world. The application has evolved to include features like user registration, authentication, and the ability to save favorite cities. This project, being my first personal venture, has been an enriching experience, providing a deeper understanding of web development, databases, and user-centered design.
 
-<h2>Getting Started</h2>
-These instructions will get you a copy of the project up and running on your local machine for development and testing purposes.
+## Getting Started
 
-<h2>Prerequisites</h2>
-<ul>
-  <li>Python 3.6+</li>
-  <li>Flask</li>
-  <li>requests</li>
-  <li>OpenWeatherMap API Key</li>
-  <li>WTForms for form handling and validation</li>
-  <li>Flask-Login for user authentication</li>
-  <li>bcrypt for password hashing</li>
-</ul>
+Follow these instructions to get the project up and running on your local machine for development and testing purposes.
 
-<h2>Installation</h2>
+## Prerequisites
 
-Clone the repository:
+- Python 3.6+
+- Flask
+- PyMongo
+- Flask-Login
+- WTForms
+- bcrypt
+- OpenWeatherMap API Key
+
+## Installation
+
+1. Clone the repository:
+ ```md
+ git clone https://github.com/JohnNtirintis/Weather-Application.git
+ ```
+2. Navigate to the clone project directory:
+ ```md
+ cd Weather-Application
+ ```
+3. Install the necessary packages::
+ ```md
+ pip install flask pymongo wtforms flask_login bcrypt
+ ```
+ OR if you're using Python 3.9 or later:
 ```md
-git clone https://github.com/JohnNtirintis/Weather-Application.git
-```
+ pip3 install flask pymongo wtforms flask_login bcrypt
+ ```
 
-Navigate to the cloned project directory
-```md
-cd Weather-Application
-```
+## OpenWeatherMap API Key
 
-Install the necessary packages
-```md
-pip install flask requests wtforms flask_login bcrypt
-```
-OR if you have python 3.9 or 3.11 you can use:
-```md
-pip3 flask requests wtforms flask_login bcrypt
-```
+To fetch the weather data, you'll need an API key from OpenWeatherMap.
 
-<h2>OpenWeatherMap API Key</h2>
-<p>For this project you will need an API key to make requests to OpenWeatherMap, if you dont add an API key this project will not work.</p>
-<p>Note: i chose OpenWeatherApp because it has a completely free plan and costs litteraly nothing to use.</p>
- 
-<ol>
-  <li>Visit the OpenWeatherMap website and create an account if you don't have one already.</li>
-  <li>Once you are logged in, you can generate your API Key.</li>
-  <li>Create a file named api-key.txt in the project's root directory.</li>
-  <li>Copy your API key and paste it in the api-key.txt file.</li>
-  <li>Save the api-key.txt file and run the project.</li>
-</ol>
+1. Sign up for a free account on OpenWeatherMap (if you don't already have one).
+2. Generate your API Key.
+3. Create a file named api-key.txt in the project's root directory.
+4. Paste your API key in the api-key.txt file.
+5. Save the file.
 
-Run the application
+## Running the Application
+
+Start the application with the following command:
 ```md
 python -m flask --app main run
 ```
 
-<h2>How to Use</h2>
-<h3>The application has four main routes:</h3>
-<ol>
-  <li>Home route '/' : This route will render the home page of the application.</li>
-  <li>By city route '/weather/x' : This route will show the current weather data for the specified city. Replace x with the name of the city.</li>
-  <li>By IP route '/weather/' : This route will show the current weather data for the location determined by your IP address. Note: the IP tracker is not very accurate.</li>
-  <li>Search bar: On the top right of the website there is a search bar that the user can enter their desired city to search for the current weather forecast.</li>
-  <li>Login and Registration routes: Users can register and login. This feature is currently under development and may not be fully functional.</li>
-</ol>
+## How to Use
 
-```md
-The application will show an error message if the weather data for the specified city is not available.
-```
-    
-<h2>Built With</h2>
-<ul>
-  <li>Flask - The web framework used.</li>
-  <li>OpenWeatherMap - The API used to get the weather data.</li>
-  <li>IPAPI - The IP tracker used to locate the user's city.</li>
-  <li>WTForms - For form handling and validation.</li>
-  <li>Flask-Login - For user authentication.</li>
-  <li>bcrypt - For password hashing and verification.</li>
-</ul>
+The application includes the following key features:
+
+1. Home Page ('/'): Displays the landing page of the application.
+2. Search Bar: Allows users to find weather forecasts for their desired city.
+3. IP-based Weather ('/weather/'): Provides weather data based on the user's IP address (accuracy may vary).
+4. City-specific URL ('/weather/<city_name>'): Shows current weather data for a specified city.
+5. User Registration and Login: Users can create accounts, log in, and save their favorite cities.
+
+Note: An error message will be displayed if the weather data for a particular city is unavailable.
+
+## Built With
+
+- Flask - The web framework used.
+- MongoDB - The database used for user registration, login and favorite cities.
+- OpenWeatherMap - The API used to get weather data.
+- IPAPI - The IP tracker used to locate the user's city (accuracy may vary).
+- WTForms - For form handling and validation.
+- Flask-Login - For user authentication.
+- bcrypt - For password hashing and verification.
+
+
+This project marks my first step in the exciting journey of web development. I've learned a lot in the process and am eager to learn and build more. Your feedback is welcome and appreciated.
+
+  
