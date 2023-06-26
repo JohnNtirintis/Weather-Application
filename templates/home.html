@@ -19,19 +19,21 @@
     {% if user %}
         <div class="topnav-left">
             <a href="/dashboard">{{session['user']['email']}}</a>
-            <button class="login-btn" type="signout"><a href="user/signout">Signout</a></button>
+            <button class="login-btn" type="signout"><a href="/user/signout">Signout</a></button>
         </div>
     {% else %}
         <button class="topnav-button" id="showFormButton"><i class="fa-solid fa-user fa-lg" style="color: #ffffff;"></i></label></button>
-        <div class="topnav-left">
+        <div class="topnav-left" id="login">
             <form id="formContainer" name="login_form" class="hide" action="/login" method="get">
                 <i class="fa-solid fa-user" style="color: #ffffff;"></i></label>
-                <input type="text" name="email" placeholder="username" required>
+                <input type="text" name="email" placeholder="email" required>
                 
                 <i class="fa-solid fa-lock" style="color: #ffffff;"></i>
                 <input type="password" name="password" placeholder="password" required>
+                
 
                 <input class="submit-btn" type="submit" value="Log in">
+                <!-- <p id="errorMessage" class="error error--hidden"></p> -->
             </form>
             <a id="signup-link" class="signup-link hide" href="/user">Or Register here!</a>
         </div>

@@ -254,6 +254,20 @@ section {
     transform: translateX(0);
 }
 
+.city-name {
+    text-decoration: none;
+    color: #ffffff;
+}
+
+.city-name:visited {
+    color: #ffffff;
+}
+
+city-name:hover, city-name:active {   
+    color: #ffffff;
+    text-decoration: none;
+}
+
 .text {
     text-align: center;
 }
