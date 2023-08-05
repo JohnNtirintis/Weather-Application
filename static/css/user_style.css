@@ -1,32 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Poppins:wght@200&display=swap');
 
 body {
-    /* background-color: #131316; */
-    /* background-image: linear-gradient(90deg, #131316 0%, #131316 46%, #131316 100%); */
-
-    /*  Cooler */
-    /* background-image: linear-gradient(90deg, #000000 0%, #353839 50%, #000000 100%); */
-
-    /* Warmer */
-    /* background-image: linear-gradient(90deg, #000000 0%, #453634 50%, #000000 100%); */
-
-    /* A serene blue theme: */
-    /* background-image: linear-gradient(90deg, #03001e 0%, #7303c0 50%, #03001e 100%); */
-
-    /* A mysterious purple theme: */
-    /* background-image: linear-gradient(90deg, #000000 0%, #1e0030 50%, #000000 100%); */
-
-    /* My purple  */
-    /* background-image: linear-gradient(90deg, #000000 0%, #301E67 50%, #000000 100%); */
-
-    /* My less purple */
     background-image: linear-gradient(90deg, #000000 0%, #221033 50%, #000000 100%);
-
-    /* Adjusted */
-    /* background-image: linear-gradient(90deg, #000000 0%, #2e0247 50%, #000000 100%); */
-
-    /* Purple Gradient */
-    /* background-image: linear-gradient();     */
 
     background-size: 100% 100%;
 }
@@ -109,9 +84,6 @@ button:hover {
 }
 
 #overlay {
-    /* background-color: #3612d6; */
-    /* background-image: linear-gradient(90deg, #000000 0%, #1e0030 50%, #000000 100%); */
-    /* background-image: linear-gradient(to bottom right, #000000 0%, #301E67 50%, #000000 100%); */
     background-image: linear-gradient(to bottom right, #000000 0%, #221033 50%, #000000 100%);
     height: 550px;
     width: 600px;
