@@ -30,6 +30,7 @@ Follow these instructions to get the project up and running on your local machin
  ```md
  pip install flask pymongo wtforms flask_login bcrypt
  ```
+
  OR if you're using Python 3.9 or later:
 ```md
  pip3 install flask pymongo wtforms flask_login bcrypt
